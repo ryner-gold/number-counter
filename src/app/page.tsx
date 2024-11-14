@@ -4,13 +4,16 @@ import { useState } from "react";
 import DevWrapper from "@/components/DevWrapper/DevWrapper";
 
 import styles from "@/app/styles.module.css";
-import { Doto } from "next/font/google";
+
+import { Doto } from "next/font/google"; // Import both fonts
+
 
 const doto_init = Doto({
   subsets: ["latin"],
-  weight: ["300", "500"]
+  weight: ["300", "500"],
+  display: "swap",
+  fallback: ["sans-serif"]
 });
-
 
 export default function Home() {
   const [count, setCount] = useState<number>(0);

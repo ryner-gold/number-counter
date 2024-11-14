@@ -11,7 +11,7 @@ const doto_init = Doto({
   subsets: ["latin"],
   weight: ["300", "500"],
   display: "swap",
-  fallback: ["sans-serif"],
+  fallback: ["sans-serif"]
 });
 
 export default function Home() {
@@ -42,6 +42,7 @@ export default function Home() {
           </h1>
         </div>
         <p
+          data-testid="count"
           id="count-container"
           className={`${styles.countContainer} ${isAddBtnActive ? `${styles.animateCountContainer} ${styles.someOtherClass}` : ""}`}
         >
@@ -49,6 +50,7 @@ export default function Home() {
         </p>
         <div className={styles.buttonContainer} id="button-container">
           <button
+            data-testid="add-btn"
             id="increase-count-btn"
             className={styles.increaseCountBtn}
             onClick={increaseCount}
@@ -56,6 +58,7 @@ export default function Home() {
             +
           </button>
           <button
+            data-testid="minus-btn"
             id="decrease-count-btn"
             className={styles.decreaseCountBtn}
             onClick={decreaseCount}

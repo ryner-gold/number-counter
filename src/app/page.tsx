@@ -1,9 +1,50 @@
-import DevWrapper from '@/components/DevWrapper/DevWrapper';
+"use client";
+
+import { useState } from "react";
+import DevWrapper from "@/components/DevWrapper/DevWrapper";
+
+import styles from "@/app/styles.module.css";
+import { Doto } from "next/font/google";
+
+const doto_init = Doto({
+  subsets: ["latin"],
+  weight: ["300", "500"]
+});
+
 
 export default function Home() {
+  const [count, setCount] = useState<number>(0);
+  const [isAddBtnActive, setIsAddBtnActive] = useState<boolean>(false);
+
+  console.log(`State: ${isAddBtnActive}`);
+
+  function increaseCount() {
+    setIsAddBtnActive(true);
+    setCount(count + 1);
+
+    setTimeout(() => {
+      setIsAddBtnActive(false);
+    }, 300);
+  }
+
+  function decreaseCount() {
+    setCount(count - 1);
+  }
+
   return (
-    <DevWrapper enabled={true} >
-      Hi! Hello World
+    <DevWrapper enabled={true}>
+      <div className={styles.parentContainer} id="parent-container">
+        <div className={`${styles.titleContainer}`}>
+
+          <h1 className={`${doto_init.className}`} id="title-container">Number Counter</h1>
+        </div>
+        <p id="count-container"
+           className={`${styles.countContainer} ${isAddBtnActive ? `${styles.animateCountContainer} ${styles.someOtherClass}` : ""}`}>{count}</p>
+        <div className={styles.buttonContainer} id="button-container">
+          <button id="increase-count-btn" className={styles.increaseCountBtn} onClick={increaseCount}>+</button>
+          <button id="decrease-count-btn" className={styles.decreaseCountBtn} onClick={decreaseCount}>-</button>
+        </div>
+      </div>
     </DevWrapper>
   );
 }

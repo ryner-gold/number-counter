@@ -7,12 +7,11 @@ import styles from "@/app/styles.module.css";
 
 import { Doto } from "next/font/google"; // Import both fonts
 
-
 const doto_init = Doto({
   subsets: ["latin"],
   weight: ["300", "500"],
   display: "swap",
-  fallback: ["sans-serif"]
+  fallback: ["sans-serif"],
 });
 
 export default function Home() {
@@ -38,14 +37,31 @@ export default function Home() {
     <DevWrapper enabled={true}>
       <div className={styles.parentContainer} id="parent-container">
         <div className={`${styles.titleContainer}`}>
-
-          <h1 className={`${doto_init.className}`} id="title-container">Number Counter</h1>
+          <h1 className={`${doto_init.className}`} id="title-container">
+            Number Counter
+          </h1>
         </div>
-        <p id="count-container"
-           className={`${styles.countContainer} ${isAddBtnActive ? `${styles.animateCountContainer} ${styles.someOtherClass}` : ""}`}>{count}</p>
+        <p
+          id="count-container"
+          className={`${styles.countContainer} ${isAddBtnActive ? `${styles.animateCountContainer} ${styles.someOtherClass}` : ""}`}
+        >
+          {count}
+        </p>
         <div className={styles.buttonContainer} id="button-container">
-          <button id="increase-count-btn" className={styles.increaseCountBtn} onClick={increaseCount}>+</button>
-          <button id="decrease-count-btn" className={styles.decreaseCountBtn} onClick={decreaseCount}>-</button>
+          <button
+            id="increase-count-btn"
+            className={styles.increaseCountBtn}
+            onClick={increaseCount}
+          >
+            +
+          </button>
+          <button
+            id="decrease-count-btn"
+            className={styles.decreaseCountBtn}
+            onClick={decreaseCount}
+          >
+            -
+          </button>
         </div>
       </div>
     </DevWrapper>

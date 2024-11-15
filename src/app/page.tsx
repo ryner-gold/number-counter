@@ -11,7 +11,7 @@ const doto_init = Doto({
   subsets: ["latin"],
   weight: ["300", "500"],
   display: "swap",
-  fallback: ["sans-serif"]
+  fallback: ["sans-serif"],
 });
 
 export default function Home() {

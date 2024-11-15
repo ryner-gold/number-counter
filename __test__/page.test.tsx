@@ -2,13 +2,12 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "@/app/page";
 import React from "react";
 
-
 describe("number counter should have correct functionality and types", () => {
   beforeAll(() => {
     vi.mock("next/font/google", () => ({
       Doto: () => ({
-        className: "mocked-font"
-      })
+        className: "mocked-font",
+      }),
     }));
   });
 
@@ -39,7 +38,4 @@ describe("number counter should have correct functionality and types", () => {
 
     expectTypeOf(countValue).toBeNumber();
   });
-
-
 });
-

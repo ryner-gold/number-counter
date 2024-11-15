@@ -8,17 +8,16 @@ afterEach(() => {
   cleanup();
 });
 
-
 // Mock Next.js router
 vi.mock("next/navigation", () => ({
   useRouter: () => ({
     push: vi.fn(),
     replace: vi.fn(),
-    back: vi.fn()
+    back: vi.fn(),
   }),
   useSearchParams: () => ({
-    get: vi.fn()
-  })
+    get: vi.fn(),
+  }),
 }));
 
 global.fetch = vi.fn();
